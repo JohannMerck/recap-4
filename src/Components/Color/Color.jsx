@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Color.css";
 import { StyledButton } from "../Buttons/StyledButton";
 import { StyledDeleteButton } from "../Buttons/StyledButton";
+import { CopyToClipboard } from "../CopyToClipboard/CopyToClipBoard";
 
 export default function Color({ color, id, onDelete, onEdit }) {
   const [isDelete, setIsDelete] = useState(false);
@@ -83,6 +84,7 @@ export default function Color({ color, id, onDelete, onEdit }) {
           <StyledButton onClick={handleEdit}>Edit</StyledButton>
         </>
       )}
+      <CopyToClipboard color={color} />
 
       {isDelete ? (
         <div>

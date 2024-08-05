@@ -76,16 +76,16 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledLabel = styled.label`
-  margin: 15px;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif;
-  color: yellow;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 0px #957dad, 1px 2px 0px #957dad, 1px 3px 0px #957dad,
-    1px 4px 0px #957dad, 1px 5px 0px #957dad, 1px 6px 0px #957dad,
-    1px 10px 5px rgba(16, 16, 16, 0.5), 1px 15px 10px rgba(16, 16, 16, 0.4),
-    1px 20px 30px rgba(16, 16, 16, 0.3), 1px 25px 50px rgba(16, 16, 16, 0.2);
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: 26px;
+  letter-spacing: 0.4px;
+  word-spacing: -1.6px;
+  color: #6f40ff;
+  font-weight: 700;
+  text-decoration: underline solid rgb(68, 68, 68);
+  font-style: italic;
+  font-variant: normal;
+  text-transform: none;
 `;
 
 export const StyledAddButton = styled(StyledButton)`
@@ -93,4 +93,14 @@ export const StyledAddButton = styled(StyledButton)`
   color: orange;
   width: 150%;
   margin: 30px;
+`;
+
+export const StyledCopyButton = styled(StyledButton)`
+  background-color: purple;
+  color: teal;
+`;
+
+export const StyledCopiedButton = styled(StyledButton)`
+  background-color: green;
+  color: orange;
 `;
