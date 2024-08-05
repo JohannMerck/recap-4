@@ -15,21 +15,21 @@ export default function Color({ color, onDelete }) {
         color: color.contrastText,
       }}
     >
-      <h3 className="color-card-bright">{color.hex}</h3>
+      <h3 className="color-card-confirmed">{color.hex}</h3>
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       {!deleteVisible ? (
-        <button onClick={toggleDelete}>DELETE</button>
+        <button onClick={toggleDelete}>Delete</button>
       ) : (
         <div>
-          <p className="color-card-bright">Really delete?</p>
-          <button onClick={toggleDelete}>CANCEL</button>
+          <p className="color-card-confirmed">Confirmed?</p>
+          <button onClick={toggleDelete}>Cancel</button>
           <button
             onClick={() => {
               onDelete(color.id);
             }}
           >
-            DELETE
+            Delete
           </button>
         </div>
       )}

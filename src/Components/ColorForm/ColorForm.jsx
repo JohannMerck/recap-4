@@ -49,21 +49,21 @@ export function ColorForm({ handleSubmit }) {
   });
 
   function handleInput(event) {
-    event.preventDefault();
     const { name, value } = event.target;
-    setInputColor((prevValue) => {
-      return { ...prevValue, [name]: value };
-    });
+    setInputColor((prevValue) => ({
+      ...prevValue,
+      [name]: value,
+    }));
   }
 
   function onSubmit(event) {
     event.preventDefault();
-    const form = event.target;
     const formData = {
-      role: form.role.value,
-      hex: form.hex.value,
-      contrastText: form.contrasttext.value,
+      role: event.target.role.value,
+      hex: event.target.hex.value,
+      contrastText: event.target.contrasttext.value,
     };
+    console.log("Form data:", formData);
     handleSubmit(formData);
   }
 
@@ -94,7 +94,7 @@ export function ColorForm({ handleSubmit }) {
             onChange={handleInput}
             name="contrasttext"
             placeholder="EnterContrastTextHere"
-            value={$inputColor.contrast}
+            value={$inputColor.contrasttext}
           />
           <div className="outerDiv">
             <div className="contrast-color-box"></div>
