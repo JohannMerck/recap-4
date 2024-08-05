@@ -4,6 +4,7 @@ import "./App.css";
 import { useState } from "react";
 import { uid } from "react-uid";
 import { ColorForm } from "./Components/ColorForm/ColorForm";
+import { StyledHeadline } from "./Components/Buttons/StyledButton";
 
 function App() {
   const [colors, setColors] = useState(initialColors);
@@ -22,10 +23,16 @@ function App() {
     setColors((prevColors) => prevColors.filter((color) => color.id !== id));
   }
 
+  const handleEditColor = (id, newColor) => {
+    setColors((prevColors) =>
+      prevColors.map((color) => (color.id === id ? newColor : color))
+    );
+  };
+
   return (
     <>
       <ColorForm handleSubmit={handleSubmit} />
-      <h1>Theme Creator</h1>
+      <StyledHeadline>Theme Creator</StyledHeadline>
 
       {colors.length > 0 ? (
         colors.map((color) => (
@@ -34,10 +41,11 @@ function App() {
             id={color.id}
             color={color}
             onDelete={handleDelete}
+            onEdit={handleEditColor}
           />
         ))
       ) : (
-        <p>No colors.. start by adding one!</p>
+        <p>Nothing here...</p>
       )}
     </>
   );
