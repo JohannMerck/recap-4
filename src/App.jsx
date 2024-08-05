@@ -9,15 +9,12 @@ function App() {
   const [colors, setColors] = useState(initialColors);
 
   function handleSubmit(newColor) {
-    // Ensure the new color object is valid before setting state
     if (!newColor.hex || !newColor.contrastText || !newColor.role) {
-      console.error("Form data is incomplete:", newColor);
+      // console.error("Form data is incomplete:", newColor);
       return;
     }
 
-    // Ensure the newColor object has the correct structure
     const colorObject = { ...newColor, id: uid(newColor) };
-
     setColors((prevColors) => [colorObject, ...prevColors]);
   }
 

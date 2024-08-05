@@ -3,12 +3,22 @@ import "./Color.css";
 import { StyledButton } from "../Buttons/StyledButton";
 import { StyledDeleteButton } from "../Buttons/StyledButton";
 
-export default function Color({ color, onDelete }) {
-  const [deleteVisible, setDeleteVisible] = useState(false);
+export default function Color({ color, id, onDelete }) {
+  const [isDelete, setIsDelete] = useState(false);
 
-  function toggleDelete() {
-    setDeleteVisible(!deleteVisible);
-  }
+  const handleDelete = () => {
+    setIsDelete(true);
+  };
+
+  const confirmDelete = () => {
+    onDelete(id);
+    setIsDelete(false);
+  };
+
+  const cancelDelete = () => {
+    setIsDelete(false);
+  };
+
   return (
     <div
       className="color-card"
@@ -21,20 +31,15 @@ export default function Color({ color, onDelete }) {
       <h4>{color.role}</h4>
       <p>contrast: {color.contrastText}</p>
       <StyledButton>Edit</StyledButton>
-      {!deleteVisible ? (
-        <StyledDeleteButton onClick={toggleDelete}>Delete</StyledDeleteButton>
-      ) : (
+
+      {isDelete ? (
         <div>
-          <p className="color-card-confirmed">Are you sure?</p>
-          <button onClick={toggleDelete}>Cancel</button>
-          <button
-            onClick={() => {
-              onDelete(color.id);
-            }}
-          >
-            Delete
-          </button>
+          <p>Are you sure you want to delete?</p>
+          <StyledButton onClick={confirmDelete}>Yes</StyledButton>
+          <StyledDeleteButton onClick={cancelDelete}>No</StyledDeleteButton>
         </div>
+      ) : (
+        <StyledDeleteButton onClick={handleDelete}>Delete</StyledDeleteButton>
       )}
     </div>
   );
