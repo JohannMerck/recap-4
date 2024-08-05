@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import {
-  StyledButton,
   StyledInput,
   StyledLabel,
+  StyledAddButton,
 } from "../Buttons/StyledButton";
 
 const StyledForm = styled.form`
@@ -21,18 +21,14 @@ const StyledForm = styled.form`
     display: flex;
     align-items: center;
   }
-
-  button {
-    width: 150px;
-    font-size: 14px;
-    margin-left: 65px;
-    border-radius: 10px;
-    margin: 15px;
-  }
 `;
 
 export function ColorForm({ handleSubmit }) {
-  const [$inputColor, setInputColor] = useState({});
+  const [$inputColor, setInputColor] = useState({
+    role: "",
+    hex: "#000000",
+    contrasttext: "#ffffff",
+  });
 
   function handleInput(event) {
     const { name, value } = event.target;
@@ -45,19 +41,34 @@ export function ColorForm({ handleSubmit }) {
   function onSubmit(event) {
     event.preventDefault();
     const formData = {
-      role: event.target.role.value,
-      hex: event.target.hex.value,
-      contrastText: event.target.contrasttext.value,
+      role: $inputColor.role,
+      hex: $inputColor.hex,
+      contrastText: $inputColor.contrasttext,
     };
 
+    if (!formData.role || !formData.hex || !formData.contrastText) {
+      return;
+    }
+
     handleSubmit(formData);
+
+    setInputColor({
+      role: "",
+      hex: "#000000",
+      contrasttext: "#ffffff",
+    });
   }
 
   return (
-    <StyledForm $inputColor={$inputColor} onSubmit={onSubmit}>
+    <StyledForm onSubmit={onSubmit}>
       <fieldset>
         <StyledLabel htmlFor="role">Title</StyledLabel>
-        <StyledInput name="role" placeholder="Enter Title" />
+        <StyledInput
+          name="role"
+          placeholder="Enter Title"
+          value={$inputColor.role}
+          onChange={handleInput}
+        />
       </fieldset>
       <fieldset>
         <StyledLabel htmlFor="hex">Hex</StyledLabel>
@@ -67,6 +78,13 @@ export function ColorForm({ handleSubmit }) {
             name="hex"
             placeholder="Enter Hex"
             value={$inputColor.hex}
+            type="text"
+          />
+          <input
+            type="color"
+            name="hex"
+            value={$inputColor.hex}
+            onChange={handleInput}
           />
         </div>
       </fieldset>
@@ -78,10 +96,17 @@ export function ColorForm({ handleSubmit }) {
             name="contrasttext"
             placeholder="Enter Contrast"
             value={$inputColor.contrasttext}
+            type="text"
+          />
+          <input
+            type="color"
+            name="contrasttext"
+            value={$inputColor.contrasttext}
+            onChange={handleInput}
           />
         </div>
       </fieldset>
-      <StyledButton>Add Color</StyledButton>
+      <StyledAddButton type="submit">Add Color</StyledAddButton>
     </StyledForm>
   );
 }
