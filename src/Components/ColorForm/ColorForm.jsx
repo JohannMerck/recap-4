@@ -70,8 +70,8 @@ export function ColorForm({ handleSubmit }) {
   return (
     <StyledForm $inputColor={$inputColor} onSubmit={onSubmit}>
       <fieldset>
-        <label htmlFor="role">Role</label>
-        <input name="role" placeholder="EnterColorHere" />
+        <label htmlFor="role">Title</label>
+        <input name="role" placeholder="Enter Title" />
       </fieldset>
       <fieldset>
         <label htmlFor="hex">Hex</label>
@@ -79,7 +79,7 @@ export function ColorForm({ handleSubmit }) {
           <input
             onChange={handleInput}
             name="hex"
-            placeholder="EnterHexHere"
+            placeholder="Enter Hex"
             value={$inputColor.hex}
           />
           <div className="outerDiv">
@@ -93,7 +93,7 @@ export function ColorForm({ handleSubmit }) {
           <input
             onChange={handleInput}
             name="contrasttext"
-            placeholder="EnterContrastTextHere"
+            placeholder="Enter Contrast"
             value={$inputColor.contrasttext}
           />
           <div className="outerDiv">
