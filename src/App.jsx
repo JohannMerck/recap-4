@@ -1,13 +1,15 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
-import { useState } from "react";
+// import { useState } from "react";
+import useLocalStorageState from "./Hooks/useLocalStorageState";
 import { uid } from "react-uid";
 import { ColorForm } from "./Components/ColorForm/ColorForm";
 import { StyledHeadline } from "./Components/ColorForm/ColorFormStyles";
 
 function App() {
-  const [colors, setColors] = useState(initialColors);
+  const [colors, setColors] = useLocalStorageState("colors", initialColors);
+  console.log(colors);
 
   function handleSubmit(newColor) {
     if (!newColor.hex || !newColor.contrastText || !newColor.role) {
