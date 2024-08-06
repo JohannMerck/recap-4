@@ -2,6 +2,7 @@ import { useState } from "react";
 import { StyledAddButton } from "../Buttons/StyledButtons";
 import { StyledForm, StyledInput, StyledLabel } from "./ColorFormStyles";
 import { StyledInputWrapper } from "./ColorFormStyles";
+import ColorThemes from "../Buttons/MultipleColorThemes/MultipleColorThemes";
 
 export function ColorForm({ handleSubmit }) {
   const [$inputColor, setInputColor] = useState({
@@ -42,6 +43,7 @@ export function ColorForm({ handleSubmit }) {
   return (
     <StyledForm onSubmit={onSubmit}>
       <fieldset>
+        <ColorThemes></ColorThemes>
         <StyledLabel htmlFor="role">Title</StyledLabel>
         <StyledInput
           name="role"
