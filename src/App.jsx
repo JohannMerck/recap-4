@@ -9,7 +9,7 @@ import { StyledHeadline } from "./Components/ColorForm/ColorFormStyles";
 import styled from "styled-components";
 
 const StyledBody = styled.body`
-  background-image: url(https://images.unsplash.com/photo-1541445996863-0c22ef83f4cd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-image: url(https://uhdwallpapers.org/uploads/converted/23/10/20/blue-macos-sonoma-2560x1440_574494-rm-90.webp);
 `;
 
 function App() {
