@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyledCopiedButton, StyledCopyButton } from "../Buttons/StyledButton";
+import { StyledCopyButton, StyledCopiedButton } from "../StyledButtons";
 
 export function CopyToClipboard({ color }) {
   const [isCopied, setIsCopied] = useState(false);

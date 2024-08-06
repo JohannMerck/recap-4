@@ -4,7 +4,7 @@ import "./App.css";
 import { useState } from "react";
 import { uid } from "react-uid";
 import { ColorForm } from "./Components/ColorForm/ColorForm";
-import { StyledHeadline } from "./Components/Buttons/StyledButton";
+import { StyledHeadline } from "./Components/ColorForm/ColorFormStyles";
 
 function App() {
   const [colors, setColors] = useState(initialColors);
@@ -31,8 +31,8 @@ function App() {
 
   return (
     <>
-      <ColorForm handleSubmit={handleSubmit} />
       <StyledHeadline>Theme Creator</StyledHeadline>
+      <ColorForm handleSubmit={handleSubmit} />
 
       {colors.length > 0 ? (
         colors.map((color) => (

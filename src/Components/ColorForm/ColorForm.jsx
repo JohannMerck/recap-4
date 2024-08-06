@@ -1,27 +1,6 @@
 import { useState } from "react";
-import styled from "styled-components";
-import {
-  StyledInput,
-  StyledLabel,
-  StyledAddButton,
-} from "../Buttons/StyledButton";
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-
-  fieldset {
-    border: none;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .input-container {
-    display: flex;
-    align-items: center;
-  }
-`;
+import { StyledAddButton } from "../Buttons/StyledButtons";
+import { StyledForm, StyledInput, StyledLabel } from "./ColorFormStyles";
 
 export function ColorForm({ handleSubmit }) {
   const [$inputColor, setInputColor] = useState({
