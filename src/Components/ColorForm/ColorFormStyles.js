@@ -50,3 +50,9 @@ export const StyledHeadline = styled.h3`
     1px 10px 5px rgba(16, 16, 16, 0.5), 1px 15px 10px rgba(16, 16, 16, 0.4),
     1px 20px 30px rgba(16, 16, 16, 0.3), 1px 25px 50px rgba(16, 16, 16, 0.2);
 `;
+
+export const StyledInputWrapper = styled.section`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;

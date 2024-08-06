@@ -11,7 +11,6 @@ function App() {
 
   function handleSubmit(newColor) {
     if (!newColor.hex || !newColor.contrastText || !newColor.role) {
-      // console.error("Form data is incomplete:", newColor);
       return;
     }
 

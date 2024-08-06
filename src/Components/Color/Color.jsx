@@ -3,6 +3,8 @@ import "./Color.css";
 import { StyledButton } from "../Buttons/StyledButtons";
 import { StyledDeleteButton } from "../Buttons/StyledButtons";
 import { CopyToClipboard } from "../Buttons/CopyToClipboard/CopyToClipBoard";
+import CheckColorContrast from "../FetchAPI/FetchAPI";
+import { StyledColor, StyledColorInput } from "./ColorStyles";
 
 export default function Color({ color, id, onDelete, onEdit }) {
   const [isDelete, setIsDelete] = useState(false);
@@ -45,8 +47,7 @@ export default function Color({ color, id, onDelete, onEdit }) {
   };
 
   return (
-    <div
-      className="color-card"
+    <StyledColor
       style={{
         background: color.hex,
         color: color.contrastText,
@@ -54,37 +55,42 @@ export default function Color({ color, id, onDelete, onEdit }) {
     >
       {isEditing ? (
         <div>
-          <input
-            type="text"
-            name="role"
-            value={editColor.role}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="hex"
-            value={editColor.hex}
-            onChange={handleChange}
-          />
-          <input
-            type="color"
-            name="hex"
-            value={editColor.hex}
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            name="contrastText"
-            value={editColor.contrastText}
-            onChange={handleChange}
-          />
-          <input
-            type="color"
-            name="contrastText"
-            value={editColor.contrastText}
-            onChange={handleChange}
-          />
-
+          <StyledColorInput>
+            <input
+              type="text"
+              name="role"
+              value={editColor.role}
+              onChange={handleChange}
+            />
+          </StyledColorInput>
+          <StyledColorInput>
+            <input
+              type="text"
+              name="hex"
+              value={editColor.hex}
+              onChange={handleChange}
+            />
+            <input
+              type="color"
+              name="hex"
+              value={editColor.hex}
+              onChange={handleChange}
+            />
+          </StyledColorInput>
+          <StyledColorInput>
+            <input
+              type="text"
+              name="contrastText"
+              value={editColor.contrastText}
+              onChange={handleChange}
+            />
+            <input
+              type="color"
+              name="contrastText"
+              value={editColor.contrastText}
+              onChange={handleChange}
+            />
+          </StyledColorInput>
           <StyledButton onClick={handleSaveEdit}>Save</StyledButton>
           <StyledDeleteButton onClick={handleCancelEdit}>
             Cancel
@@ -94,6 +100,7 @@ export default function Color({ color, id, onDelete, onEdit }) {
         <>
           <h4>{color.role}</h4>
           <p>contrast: {color.contrastText}</p>
+          <CheckColorContrast />
           <StyledButton onClick={handleEdit}>Edit</StyledButton>
         </>
       )}
@@ -108,6 +115,6 @@ export default function Color({ color, id, onDelete, onEdit }) {
       ) : (
         <StyledDeleteButton onClick={handleDelete}>Delete</StyledDeleteButton>
       )}
-    </div>
+    </StyledColor>
   );
 }

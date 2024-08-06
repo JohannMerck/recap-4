@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyledAddButton } from "../Buttons/StyledButtons";
 import { StyledForm, StyledInput, StyledLabel } from "./ColorFormStyles";
+import { StyledInputWrapper } from "./ColorFormStyles";
 
 export function ColorForm({ handleSubmit }) {
   const [$inputColor, setInputColor] = useState({
@@ -51,7 +52,7 @@ export function ColorForm({ handleSubmit }) {
       </fieldset>
       <fieldset>
         <StyledLabel htmlFor="hex">Hex</StyledLabel>
-        <div className="input-container">
+        <StyledInputWrapper>
           <StyledInput
             onChange={handleInput}
             name="hex"
@@ -59,17 +60,17 @@ export function ColorForm({ handleSubmit }) {
             value={$inputColor.hex}
             type="text"
           />
-          <input
+          <StyledInput
             type="color"
             name="hex"
             value={$inputColor.hex}
             onChange={handleInput}
           />
-        </div>
+        </StyledInputWrapper>
       </fieldset>
       <fieldset>
         <StyledLabel htmlFor="contrasttext">Contrast</StyledLabel>
-        <div className="input-container">
+        <StyledInputWrapper>
           <StyledInput
             onChange={handleInput}
             name="contrasttext"
@@ -77,13 +78,13 @@ export function ColorForm({ handleSubmit }) {
             value={$inputColor.contrasttext}
             type="text"
           />
-          <input
+          <StyledInput
             type="color"
             name="contrasttext"
             value={$inputColor.contrasttext}
             onChange={handleInput}
           />
-        </div>
+        </StyledInputWrapper>
       </fieldset>
       <StyledAddButton type="submit">Add Color</StyledAddButton>
     </StyledForm>
