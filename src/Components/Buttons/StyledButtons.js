@@ -69,3 +69,8 @@ export const StyledCopiedButton = styled(StyledButton)`
   background-color: green;
   color: orange;
 `;
+
+export const StyledAddThemeButton = styled(StyledButton)`
+  background-color: green;
+  color: orange;
+`;

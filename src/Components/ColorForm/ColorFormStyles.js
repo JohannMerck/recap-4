@@ -24,6 +24,7 @@ export const StyledInput = styled.input`
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 700;
+  max-width: 220px;
 `;
 
 export const StyledLabel = styled.label`
@@ -55,4 +56,9 @@ export const StyledInputWrapper = styled.section`
   display: flex;
   align-items: center;
   gap: 10px;
+`;
+
+export const StyledAddThemeWrapper = styled.section`
+  display: flex;
+  align-items: center;
 `;

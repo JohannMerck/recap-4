@@ -1,10 +1,17 @@
+import {
+  StyledButton,
+  StyledDeleteButton,
+  StyledAddThemeButton,
+} from "../StyledButtons";
+import { StyledAddThemeWrapper } from "../../ColorForm/ColorFormStyles";
+
 export default function ColorThemes() {
   return (
-    <div>
+    <StyledAddThemeWrapper>
       <input type="dropdown" name="ColorThemes" value="DefaultTheme" />
-      <button>Add</button>
-      <button>Edit</button>
-      <button>Delete</button>
-    </div>
+      <StyledAddThemeButton>Add</StyledAddThemeButton>
+      <StyledButton>Edit</StyledButton>
+      <StyledDeleteButton>Delete</StyledDeleteButton>
+    </StyledAddThemeWrapper>
   );
 }
