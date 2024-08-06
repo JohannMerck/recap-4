@@ -9,7 +9,6 @@ import { StyledHeadline } from "./Components/ColorForm/ColorFormStyles";
 
 function App() {
   const [colors, setColors] = useLocalStorageState("colors", initialColors);
-  console.log(colors);
 
   function handleSubmit(newColor) {
     if (!newColor.hex || !newColor.contrastText || !newColor.role) {

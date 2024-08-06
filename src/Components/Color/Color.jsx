@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "./Color.css";
-import { StyledButton } from "../Buttons/StyledButtons";
-import { StyledDeleteButton } from "../Buttons/StyledButtons";
+import { StyledButton, StyledDeleteButton } from "../Buttons/StyledButtons";
 import { CopyToClipboard } from "../Buttons/CopyToClipboard/CopyToClipBoard";
-import CheckColorContrast from "../FetchAPI/FetchAPI";
 import { StyledColor, StyledColorInput } from "./ColorStyles";
+import { ContrastColorCheck } from "../ContrastColorCheck/ContrastColorCheck";
 
 export default function Color({ color, id, onDelete, onEdit }) {
   const [isDelete, setIsDelete] = useState(false);
@@ -47,12 +46,7 @@ export default function Color({ color, id, onDelete, onEdit }) {
   };
 
   return (
-    <StyledColor
-      style={{
-        background: color.hex,
-        color: color.contrastText,
-      }}
-    >
+    <StyledColor style={{ background: color.hex, color: color.contrastText }}>
       {isEditing ? (
         <div>
           <StyledColorInput>
@@ -100,7 +94,7 @@ export default function Color({ color, id, onDelete, onEdit }) {
         <>
           <h4>{color.role}</h4>
           <p>contrast: {color.contrastText}</p>
-          <CheckColorContrast />
+
           <StyledButton onClick={handleEdit}>Edit</StyledButton>
         </>
       )}
@@ -115,6 +109,10 @@ export default function Color({ color, id, onDelete, onEdit }) {
       ) : (
         <StyledDeleteButton onClick={handleDelete}>Delete</StyledDeleteButton>
       )}
+      <ContrastColorCheck
+        checkHex={color.hex}
+        checkContrast={color.contrastText}
+      />
     </StyledColor>
   );
 }
