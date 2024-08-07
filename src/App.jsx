@@ -10,6 +10,8 @@ import styled from "styled-components";
 
 const StyledBody = styled.body`
   background-image: url(https://uhdwallpapers.org/uploads/converted/23/10/20/blue-macos-sonoma-2560x1440_574494-rm-90.webp);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  padding: 10px;
 `;
 
 function App() {

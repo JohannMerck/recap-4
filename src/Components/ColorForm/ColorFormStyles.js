@@ -25,6 +25,7 @@ export const StyledInput = styled.input`
   font-size: 1rem;
   font-weight: 700;
   max-width: 220px;
+  color: #3814b8;
 `;
 
 export const StyledLabel = styled.label`
@@ -61,4 +62,16 @@ export const StyledInputWrapper = styled.section`
 export const StyledAddThemeWrapper = styled.section`
   display: flex;
   align-items: center;
+`;
+
+export const StyledDropdown = styled.select`
+  background-color: #3dd1e7;
+  color: #3814b8;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 700;
+  max-width: 220px;
+  width: 220px;
 `;
