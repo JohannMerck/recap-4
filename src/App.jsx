@@ -1,7 +1,7 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
 import "./App.css";
-// import { useState } from "react";
+import ColorThemesForm from "./Components/Buttons/MultipleColorThemes/ColorThemes";
 import useLocalStorageState from "./Hooks/useLocalStorageState";
 import { uid } from "react-uid";
 import { ColorForm } from "./Components/ColorForm/ColorForm";
@@ -9,7 +9,7 @@ import { StyledHeadline } from "./Components/ColorForm/ColorFormStyles";
 import styled from "styled-components";
 
 const StyledBody = styled.body`
-  background-image: url(https://uhdwallpapers.org/uploads/converted/23/10/20/blue-macos-sonoma-2560x1440_574494-rm-90.webp);
+  background-image: url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   padding: 10px;
 `;
@@ -39,6 +39,7 @@ function App() {
   return (
     <StyledBody>
       <StyledHeadline>Theme Creator</StyledHeadline>
+      <ColorThemesForm></ColorThemesForm>
       <ColorForm handleSubmit={handleSubmit} />
 
       {colors.length > 0 ? (
