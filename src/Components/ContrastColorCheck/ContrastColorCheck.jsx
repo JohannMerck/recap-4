@@ -31,7 +31,7 @@ export function ContrastColorCheck({ checkHex, checkContrast }) {
     postFetch();
   }, [checkHex, checkContrast]);
 
-  function getContrastStyle() {
+  function getContrastCheckStyle() {
     if (score === "Nope") {
       return {
         fontSize: "25px",
@@ -74,8 +74,8 @@ export function ContrastColorCheck({ checkHex, checkContrast }) {
   }
 
   return (
-    <p style={getContrastStyle()}>
-      Overall Contrast Score: {score !== null ? score : "Loading..."}
+    <p style={getContrastCheckStyle()}>
+      Contrast Score: {score !== null ? score : "Loading..."}
     </p>
   );
 }
