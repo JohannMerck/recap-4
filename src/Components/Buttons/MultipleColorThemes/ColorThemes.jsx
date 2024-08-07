@@ -41,13 +41,25 @@ export default function ColorThemesForm({ onEdit, onDelete }) {
           <option value="secondTheme">Second Theme</option>
           <option value="thirdTheme">Third Theme</option>
         </StyledDropdown>
-        <StyledAddThemeButton>Add</StyledAddThemeButton>
-        <StyledButton onClick={toggleEditTheme}>Edit</StyledButton>
-        <StyledDeleteButton>Delete</StyledDeleteButton>
+        <StyledAddThemeButton type="button">Add</StyledAddThemeButton>
+        <StyledButton type="button" onClick={toggleEditTheme}>
+          Edit
+        </StyledButton>
+        <StyledDeleteButton type="button" onClick={toggleDeleteTheme}>
+          Delete
+        </StyledDeleteButton>
 
         {editTheme && (
           <div>
             <StyledInput placeholder="Edit Theme Name" />
+          </div>
+        )}
+
+        {deleteTheme && (
+          <div>
+            <p>Delete Theme?</p>
+            <StyledButton>Yes</StyledButton>
+            <StyledDeleteButton>No</StyledDeleteButton>
           </div>
         )}
       </StyledAddThemeWrapper>
