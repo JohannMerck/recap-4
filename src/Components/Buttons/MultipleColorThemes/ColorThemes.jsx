@@ -24,13 +24,24 @@ const StyledDropdown = styled.select`
 export default function ColorThemesForm({ onEdit, onDelete }) {
   const [editTheme, setEditTheme] = useState(false);
   const [deleteTheme, setDeleteTheme] = useState(false);
+  const [addTheme, setAddTheme] = useState(false);
 
   function toggleEditTheme() {
     setEditTheme(!editTheme);
+    setDeleteTheme(false);
+    setAddTheme(false);
   }
 
   function toggleDeleteTheme() {
     setDeleteTheme(!deleteTheme);
+    setAddTheme(false);
+    setEditTheme(false);
+  }
+
+  function toggleAddTheme() {
+    setAddTheme(!addTheme);
+    setEditTheme(false);
+    setDeleteTheme(false);
   }
 
   return (
@@ -41,7 +52,9 @@ export default function ColorThemesForm({ onEdit, onDelete }) {
           <option value="secondTheme">Second Theme</option>
           <option value="thirdTheme">Third Theme</option>
         </StyledDropdown>
-        <StyledAddThemeButton type="button">Add</StyledAddThemeButton>
+        <StyledAddThemeButton type="button" onClick={toggleAddTheme}>
+          Add
+        </StyledAddThemeButton>
         <StyledButton type="button" onClick={toggleEditTheme}>
           Edit
         </StyledButton>
@@ -60,6 +73,12 @@ export default function ColorThemesForm({ onEdit, onDelete }) {
             <p>Delete Theme?</p>
             <StyledButton>Yes</StyledButton>
             <StyledDeleteButton>No</StyledDeleteButton>
+          </div>
+        )}
+
+        {addTheme && (
+          <div>
+            <StyledInput placeholder="Add Color Theme" />
           </div>
         )}
       </StyledAddThemeWrapper>
